@@ -6,9 +6,11 @@ const app = express();
 app.use(express.json()); //for post request req.body
 
 /*******************routes**************************/
-app.get('/api/v1/tours', (req, res) => res.send('Hello World!'));
+app.get('/api/v1/tours', (req, res) =>
+  res.json({ message: 'Hello World!', route: 'from route' })
+);
 app.post('/api/v1/tours', (req, res) => {
-  res.send('POST request to the homepage');
+  res.send(req.body);
 });
 
 /******************server********************************/
