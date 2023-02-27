@@ -7,6 +7,12 @@ const tourRouter = require('./routes/tourRouter');
 
 app.use(express.json()); //for post request req.body
 app.use(morgan('dev'));
+
+//custom middleware
+app.use((req, res, next) => {
+  console.log('😎 Hello There');
+  next();
+});
 /*******************routes**************************/
 app.use('/api/v1/tours', tourRouter);
 
