@@ -17,17 +17,21 @@ app.post('/api/v1/tours', (req, res) => {
 });
 
 app.get('/api/v1/tours/:id', (req, res) => {
-  res.status(200).send(req.params.id);
+  res.status(200).json({
+    status: 'success',
+    idParam: req.params.id,
+    data: { tour: req.body },
+  });
 });
 
 app.patch('/api/v1/tours/:id', (req, res) => {
   const { id, name, description } = req.body;
-  res.status(200).send(`Name ${id} ${name}, desc ${description}`);
+  res.status(200).json({ status: 'success', data: { id, name, description } });
 });
 
 app.delete('/api/v1/tours/:id', (req, res) => {
   const { id } = req.params;
-  res.status(204).send(`Delete record with id ${id}`);
+  res.status(204).json({ status: 'success', data: null, id: id });
 });
 /******************server********************************/
 const port = 3000;
