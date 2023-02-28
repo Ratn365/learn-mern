@@ -6,6 +6,7 @@ const tourRouter = require('./routes/tourRouter');
 /*****************MiddleWare*****************************/
 
 app.use(express.json()); //for post request req.body
+app.use(express.static('./public')); //for serving static files
 app.use(morgan('dev'));
 
 //custom middleware
