@@ -14,6 +14,7 @@ const checkBody = (req, res, next) => {
       .status(400)
       .json({ status: 'fail', message: 'missing name or price' });
   }
+  next();
 };
 
 const getAllTours = (req, res) => {
