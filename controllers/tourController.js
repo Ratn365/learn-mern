@@ -1,3 +1,12 @@
+const checkid = (req, res, next, val) => {
+  if (req.params.id * 1 < 1) {
+    //change as per use later
+    //return res.status(404).json({ status: 'fail', message: 'invalid Id' });
+    console.log('😎 Hi , The id is %s', val);
+  }
+  next();
+};
+
 const getAllTours = (req, res) => {
   res.status(200).json({
     status: 'success',
@@ -32,4 +41,5 @@ module.exports = {
   getTour,
   updateTour,
   deleteTour,
+  checkid,
 };

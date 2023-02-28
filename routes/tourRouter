@@ -1,7 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const tourcontoller = require('../controllers/tourController');
-/*******************routeHandler**************************/
+
+/********* midddleware **********/
+router.param('id', tourcontoller.checkid); //param midddleware only for tour router
+
+/*******************route**************************/
 
 router.route('/').get(tourcontoller.getAllTours).post(tourcontoller.createTour);
 router
